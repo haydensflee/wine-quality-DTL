@@ -15,12 +15,11 @@ private:
 	vector<float> myData;
 	bool myLeafNode;
 
-	// int N;
-
 public:
 
 	node * myLeftNode;
 	node * myRightNode;
+
 	//default constructor
 	node();
 
@@ -31,7 +30,6 @@ public:
 	float getSplitVal();
 
 	void setData(vector<float> data, int N);
-	// float ** getData();
 	void printData();
 
 	void setLeftNode(node * leftNode);
@@ -44,9 +42,6 @@ public:
 
 	void setSplitValAttr(int splitValAttr);
 	int getSplitValAttr();
-
-
-
 
 	//deconstructor
 	~node();
