@@ -472,6 +472,11 @@ node * DTL(vector<float> data, int minLeaf)
     return myNode;
 }
 
+/*
+* brief: Based on the current split value, assign the current node to the left or right
+* input: node, data
+* output: attribute label
+*/
 string predict_DTL(node * myNode, vector<float> data)
 {
 
