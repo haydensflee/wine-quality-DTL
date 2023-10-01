@@ -15,6 +15,11 @@ struct attrSplitVal
 
 typedef struct attrSplitVal Struct;
 
+/*
+* brief: Calculate the information gain of a particular testing attribute
+* input: data, attribute number, split value
+* output: informationGain
+*/
 float calculateInfoGain(vector<float> data, int attr, float splitVal)
 {
     float entries;
@@ -227,10 +232,15 @@ float calculateInfoGain(vector<float> data, int attr, float splitVal)
 
 
     // Calculate Information Gain
-    gain=infoContentRoot-lessProb*infoContentLeft-greatEQProb*infoContentRight;
+    gain = infoContentRoot - ( lessProb * infoContentLeft ) - ( greatEQProb * infoContentRight );
     return gain;
 }
 
+/*
+* brief: Iterates through testing attributes to find the optimal split value
+* input: data
+* output: <attribute, split value> pair
+*/
 attrSplitVal chooseSplit(vector<float> data)
 {
     attrSplitVal s;
@@ -279,6 +289,11 @@ attrSplitVal chooseSplit(vector<float> data)
     return s;
 }
 
+/*
+* brief: Recursive function for constructing decision tree.
+* input: data, minLeaf
+* output: node
+*/
 node * DTL(vector<float> data, int minLeaf)
 {
     attrSplitVal  result;
@@ -414,7 +429,6 @@ node * DTL(vector<float> data, int minLeaf)
         return myNode;
     }
 
-    // chooseSplit(data) --> Algorithm 2
     result = chooseSplit(data);
 
     attrIndex=result.attr;
